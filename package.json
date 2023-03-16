@@ -1,0 +1,20 @@
+{
+  "name": "base-65536-number",
+  "version": "1.0.0",
+  "description": "To work with base 65536 numbers",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/NavpreetDevpuri/base-65536-number.git"
+  },
+  "keywords": [],
+  "author": "Navpreet Singh Devpuri",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/NavpreetDevpuri/base-65536-number/issues"
+  },
+  "homepage": "https://github.com/NavpreetDevpuri/base-65536-number#readme"
+}
