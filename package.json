@@ -1,7 +1,7 @@
 {
-  "name": "base-65536-number",
-  "version": "1.0.0",
-  "description": "To work with base 65536 numbers",
+  "name": "@navpreetdevpuri/base-2-n",
+  "version": "0.0.1",
+  "description": "To work with base 2^n numbers",
   "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
