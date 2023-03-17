@@ -1,4 +1,4 @@
-export default class Base2N {
+class Base2N {
   constructor(digits, n = 16, maxNoOfDigits = 50) {
     if (digits.length > maxNoOfDigits) {
       throw new Error(
@@ -115,11 +115,4 @@ export default class Base2N {
   }
 }
 
-const a = new Base2N('\0', 1, 5); // base 2
-const b = new Base2N('1', 1, 5);
-let c = a.add(b);
-console.log(a.toString()); // 0
-console.log(b.toString()); // 3
-console.log(c.toString()); // c
-c = c.subtract(b);
-console.log(c.toString() == a.toString()); // true
+module.exports = Base2N;
