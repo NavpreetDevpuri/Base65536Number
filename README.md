@@ -1,4 +1,4 @@
-# base-65536-number
+# base-2-n
 
 To work with base 2^n numbers.
 
