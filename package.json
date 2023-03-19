@@ -1,10 +1,11 @@
 {
   "name": "@navpreetdevpuri/base-2-n",
-  "version": "0.0.3",
+  "version": "0.0.7",
   "description": "To work with base 2^n numbers",
-  "main": "index.js",
+  "main": "lib/index.js",
+  "type": "module",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "build": "npx tsc"
   },
   "repository": {
     "type": "git",
