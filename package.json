@@ -1,9 +1,8 @@
 {
   "name": "@navpreetdevpuri/base-2-n",
-  "version": "0.0.8",
+  "version": "0.0.9",
   "description": "To work with base 2^n numbers",
   "main": "lib/index.js",
-  "type": "module",
   "scripts": {
     "build": "npx tsc"
   },
@@ -17,5 +16,8 @@
   "bugs": {
     "url": "https://github.com/NavpreetDevpuri/base-65536-number/issues"
   },
-  "homepage": "https://github.com/NavpreetDevpuri/base-65536-number#readme"
+  "homepage": "https://github.com/NavpreetDevpuri/base-65536-number#readme",
+  "dependencies": {
+    "@navpreetdevpuri/trie-js": "^1.0.5"
+  }
 }
