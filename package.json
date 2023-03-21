@@ -1,6 +1,6 @@
 {
   "name": "@navpreetdevpuri/base-2-n",
-  "version": "0.0.9",
+  "version": "0.0.10",
   "description": "To work with base 2^n numbers",
   "main": "lib/index.js",
   "scripts": {
@@ -8,15 +8,15 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/NavpreetDevpuri/base-65536-number.git"
+    "url": "git+https://github.com/NavpreetDevpuri/base-2-n.git"
   },
-  "keywords": [],
+  "keywords": ["baseN", "base64", "base4", "base n^2", "base16", "number system", "math"],
   "author": "Navpreet Singh Devpuri",
   "license": "ISC",
   "bugs": {
-    "url": "https://github.com/NavpreetDevpuri/base-65536-number/issues"
+    "url": "https://github.com/NavpreetDevpuri/base-2-n/issues"
   },
-  "homepage": "https://github.com/NavpreetDevpuri/base-65536-number#readme",
+  "homepage": "https://github.com/NavpreetDevpuri/base-2-n#readme",
   "dependencies": {},
   "devDependencies": {
     "@types/node": "^18.15.3",
