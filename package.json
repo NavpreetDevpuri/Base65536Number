@@ -1,6 +1,6 @@
 {
   "name": "@navpreetdevpuri/base-2-n",
-  "version": "0.0.10",
+  "version": "1.0.0",
   "description": "To work with base 2^n numbers",
   "main": "lib/index.js",
   "scripts": {
