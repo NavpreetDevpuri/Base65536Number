@@ -12,11 +12,11 @@ class Base2N {
       );
     }
 
-    if (n == 0) {
+    if (n === 0) {
       throw new Error(`n can't be zero.`);
     }
 
-    if (maxNoOfDigits == 0) {
+    if (maxNoOfDigits === 0) {
       throw new Error(`maxNoOfDigits can't be zero.`);
     }
 
@@ -27,7 +27,7 @@ class Base2N {
     }
 
     this.n = n;
-    this.base = Math.pow(2, n);
+    this.base = 2 ** n;
 
     const noOf1sInBaseBinary = this.base.toString(2).split('1').length - 1;
     if (noOf1sInBaseBinary > 1) {
@@ -37,7 +37,7 @@ class Base2N {
     }
 
     this.charset = [];
-    for (let i = 0; i < this.base; i++) {
+    for (let i = 0; i < this.base; i += 1) {
       this.charset[i] = String.fromCharCode(i);
     }
     this.maxNoOfDigits = maxNoOfDigits;
@@ -46,8 +46,8 @@ class Base2N {
         ? digits
         : new Uint16Array(this.maxNoOfDigits);
 
-    if (typeof digits == 'string') {
-      for (let i = digits.length, j = maxNoOfDigits; i > -1; i--, j--) {
+    if (typeof digits === 'string') {
+      for (let i = digits.length, j = maxNoOfDigits; i > -1; i -= 1, j -= 1) {
         this.digits[j] = digits.charCodeAt(i);
         if (this.digits[j] > this.base) {
           throw new Error(
@@ -60,7 +60,7 @@ class Base2N {
 
   public toString(): string {
     let result = '';
-    for (let i = 0; i < this.maxNoOfDigits; i++) {
+    for (let i = 0; i < this.maxNoOfDigits; i += 1) {
       result += this.charset[this.digits[i]];
     }
     return result;
@@ -72,7 +72,7 @@ class Base2N {
     }
     const result = new Uint16Array(this.maxNoOfDigits);
     let carry = 0;
-    for (let i = this.maxNoOfDigits - 1; i > -1; i--) {
+    for (let i = this.maxNoOfDigits - 1; i > -1; i -= 1) {
       if (this.digits[i] < other.digits[i]) {
         result[i] = this.digits[i] - carry + this.base - other.digits[i];
         carry = 1;
@@ -87,7 +87,7 @@ class Base2N {
   add(other: Base2N): Base2N {
     const result = new Uint16Array(this.maxNoOfDigits);
     let carry = 0;
-    for (let i = this.maxNoOfDigits - 1; i > -1; i--) {
+    for (let i = this.maxNoOfDigits - 1; i > -1; i -= 1) {
       const curr = this.digits[i] + other.digits[i] + carry;
       carry = curr > this.base ? 1 : 0;
       result[i] = curr;
@@ -98,7 +98,7 @@ class Base2N {
   half(): Base2N {
     const result = new Uint16Array(this.maxNoOfDigits);
     let carry = 0;
-    for (let i = 0; i < this.maxNoOfDigits; i++) {
+    for (let i = 0; i < this.maxNoOfDigits; i += 1) {
       const curr = (this.digits[i] >> 1) | (carry << 15);
       carry = curr & 1 ? 1 : 0;
       result[i] = curr;
@@ -107,13 +107,13 @@ class Base2N {
   }
 
   average(other: Base2N): Base2N {
-    if (this.maxNoOfDigits != other.maxNoOfDigits) {
+    if (this.maxNoOfDigits !== other.maxNoOfDigits) {
       throw new Error('Operands are not of the same length');
     }
     let bothOddFlag = 0;
     if (
-      this.digits[this.digits.length - 1] % 2 == 1 &&
-      other.digits[other.digits.length - 1] % 2 == 1
+      this.digits[this.digits.length - 1] % 2 === 1 &&
+      other.digits[other.digits.length - 1] % 2 === 1
     ) {
       bothOddFlag = 1;
     }
