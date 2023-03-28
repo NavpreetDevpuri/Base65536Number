@@ -76,10 +76,10 @@ class Base2N {
       if (this.digits[i] < other.digits[i]) {
         result[i] = this.digits[i] - carry + this.base - other.digits[i];
         carry = 1;
-        continue;
+      } else {
+        result[i] = this.digits[i] - carry - other.digits[i];
+        carry = 0;
       }
-      result[i] = this.digits[i] - carry - other.digits[i];
-      carry = 0;
     }
     return new Base2N(result, this.n, this.maxNoOfDigits);
   }
@@ -89,8 +89,13 @@ class Base2N {
     let carry = 0;
     for (let i = this.maxNoOfDigits - 1; i > -1; i -= 1) {
       const curr = this.digits[i] + other.digits[i] + carry;
-      carry = curr > this.base ? 1 : 0;
-      result[i] = curr;
+      if (curr > this.base) {
+        result[i] = curr - this.base;
+        carry = 1;
+      } else {
+        result[i] = curr;
+        carry = 0;
+      }
     }
     return new Base2N(result, this.n, this.maxNoOfDigits);
   }
@@ -100,7 +105,7 @@ class Base2N {
     let carry = 0;
     for (let i = 0; i < this.maxNoOfDigits; i += 1) {
       const curr = (this.digits[i] >> 1) | (carry << 15);
-      carry = curr & 1 ? 1 : 0;
+      carry = curr & 1;
       result[i] = curr;
     }
     return new Base2N(result, this.n, this.maxNoOfDigits);
