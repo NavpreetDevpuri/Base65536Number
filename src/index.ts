@@ -131,4 +131,5 @@ class Base2N {
   }
 }
 
-module.exports = Base2N;
+export default Base2N;
+export { Base2N };
