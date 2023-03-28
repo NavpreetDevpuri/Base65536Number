@@ -105,7 +105,7 @@ class Base2N {
     let carry = 0;
     for (let i = 0; i < this.maxNoOfDigits; i += 1) {
       const curr = (this.digits[i] >> 1) | (carry << 15);
-      carry = curr & 1;
+      carry = this.digits[i] & 1;
       result[i] = curr;
     }
     return new Base2N(result, this.n, this.maxNoOfDigits);
