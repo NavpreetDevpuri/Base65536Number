@@ -49,7 +49,7 @@ class Base2N {
     if (typeof digits === 'string') {
       for (let i = digits.length, j = maxNoOfDigits; i > -1; i -= 1, j -= 1) {
         this.digits[j] = digits.charCodeAt(i);
-        if (this.digits[j] > this.base) {
+        if (this.digits[j] >= this.base) {
           throw new Error(
             `Any digit's ASCII code in given digits can't be more than or equal to given base: ${this.base}. ASCII code ${this.digits[j]} > base ${this.base}`
           );
@@ -89,7 +89,7 @@ class Base2N {
     let carry = 0;
     for (let i = this.maxNoOfDigits - 1; i > -1; i -= 1) {
       const curr = this.digits[i] + other.digits[i] + carry;
-      if (curr > this.base) {
+      if (curr >= this.base) {
         result[i] = curr - this.base;
         carry = 1;
       } else {
@@ -104,7 +104,7 @@ class Base2N {
     const result = new Uint16Array(this.maxNoOfDigits);
     let carry = 0;
     for (let i = 0; i < this.maxNoOfDigits; i += 1) {
-      const curr = (this.digits[i] >> 1) | (carry << 15);
+      const curr = (this.digits[i] >> 1) | (carry << (this.n - 1));
       carry = this.digits[i] & 1;
       result[i] = curr;
     }
