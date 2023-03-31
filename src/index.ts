@@ -115,12 +115,12 @@ class Base2N {
     if (this.maxNoOfDigits !== other.maxNoOfDigits) {
       throw new Error('Operands are not of the same length');
     }
-    let bothOddFlag = 0;
+    let bothOddFlag = '\u0000';
     if (
       this.digits[this.digits.length - 1] % 2 === 1 &&
       other.digits[other.digits.length - 1] % 2 === 1
     ) {
-      bothOddFlag = 1;
+      bothOddFlag = '\u0001';
     }
     const thisHalf = this.half();
     const bHalf = other.half();
