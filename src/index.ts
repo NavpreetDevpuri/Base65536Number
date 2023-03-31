@@ -126,7 +126,7 @@ class Base2N {
     const bHalf = other.half();
     const result = thisHalf
       .add(bHalf)
-      .add(new Base2N(bothOddFlag.toString(), this.n, this.maxNoOfDigits));
+      .add(new Base2N(bothOddFlag, this.n, this.maxNoOfDigits));
     return result;
   }
 }
