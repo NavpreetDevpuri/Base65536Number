@@ -126,10 +126,10 @@ class Base2N {
 
   static _getMakeLength(a: Base2N, b: Base2N): { a: Base2N, b: Base2N }  {
     if (a.length > b.length) {
-      b = new Base2N(b.toString().padEnd(a.length), a.n);
+      b = new Base2N(b.toString().padStart(a.length, '\0'), a.n);
       return { a, b };
     } else if (b.length > a.length) {
-      a = new Base2N(a.toString().padEnd(b.length), b.n);
+      a = new Base2N(a.toString().padStart(b.length, '\0'), b.n);
       return { a, b };
     }
     return { a, b };
